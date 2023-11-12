@@ -1,0 +1,59 @@
+server:
+  port: 3001
+spring:
+  application:
+    name: seata-storage-service
+  cloud:
+    nacos:
+      discovery:
+        namespace: public
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+    loadbalancer:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: '!@#qweasd'
+    url: jdbc:mysql://localhost:3306/seata_storage?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    username: root
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: dev
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 5000
+        read-timeout: 5000
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+seata:
+  config:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      namespace: public
+      group: DEFAULT_GROUP
+      username: nacos
+      password: nacos
+      data-id: seataServer.properties
+    type: nacos
+  enable-auto-data-source-proxy: true
+  enabled: true
+  registry:
+    nacos:
+      application: seata-server
+      server-addr: 127.0.0.1:8848
+      group: DEFAULT_GROUP
+      namespace: public
+      cluster: default
+      username: nacos
+      password: nacos
+    type: nacos
+#  tx-service-group: scorpios_tx_group
+
