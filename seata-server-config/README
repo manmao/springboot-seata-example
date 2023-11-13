@@ -1,11 +1,17 @@
 seata-server 搭建
 1.修改conf/application.yml文件，配置config、registry、store
    参考application.yml文件
+
 2.nacos 配置seataServer.properties
    seataServer.properties文件内容 复制自 \script\config-center\config.txt文件
    参考seataServer.properties
-3.启动seata-server
+
+3.创建seata-server的数据库和相关的表，数据库和store配置的数据保持一致
+   https://github.com/seata/seata/blob/1.7.1/script/server/db/mysql.sql
+
+4.启动seata-server
     /bin/seata-server.sh
 
 springboot工程接入seata-server
     seata配置的config和registry 保持和seata-server的一致
+    AT模式下：每个业务数据库需要创建undo_log表：https://github.com/seata/seata/blob/1.7.1/script/client/at/db/mysql.sql
