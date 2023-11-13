@@ -14,7 +14,7 @@ spring:
       enabled: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: '!@#qweasd'
+    password: '123321'
     url: jdbc:mysql://localhost:3306/seata_storage?serverTimezone=GMT%2B8&characterEncoding=utf-8
     username: root
   jackson:
