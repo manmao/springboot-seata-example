@@ -59,5 +59,6 @@ seata:
       password: nacos
     type: nacos
   data-source-proxy-mode: AT
-#  tx-service-group: scorpios_tx_group
+  tx-service-group: default_tx_group
+
 

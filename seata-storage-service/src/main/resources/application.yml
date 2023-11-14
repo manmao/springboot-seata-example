@@ -55,5 +55,8 @@ seata:
       username: nacos
       password: nacos
     type: nacos
-#  tx-service-group: scorpios_tx_group
+  data-source-proxy-mode: AT
+  # 对应seataServer.properties 配置 service.vgroupMapping.default_tx_group=default
+  # default 即 seata registry 配置的注册集群 seata.registry.nacos.cluster=default
+  tx-service-group: default_tx_group
 
